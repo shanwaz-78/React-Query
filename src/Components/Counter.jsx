@@ -8,7 +8,8 @@ const Counter = () => {
   const { data, isLoading, isError, error } = useQuery(
     "Get Posts",
     async () => (await getPosts("/posts")).data,
-    { refetchOnWindowFocus: true }
+    { refetchOnWindowFocus: true} // enabled : true/false will prevent query execution implicitly
+    // cacheTime :- used to cache the query result for specific time
   );
 
   if (isLoading) {
